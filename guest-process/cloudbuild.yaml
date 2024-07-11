@@ -1,0 +1,18 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - guests-process
+  - --gen2
+  - --region=europe-west4
+  - --source=https://source.developers.google.com/projects/some-project/repos/guests-process
+  - --trigger-topic=launch-guests-pubsub
+  - --runtime=python39
+  - --service-account=someservice@some-project.iam.gserviceaccount.com
+  - --entry-point=main
+  - --max-instances=100
+  - --min-instances=0
+  - --timeout=540
+  - --memory=2Gi
