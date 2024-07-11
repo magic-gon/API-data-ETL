@@ -1,0 +1,18 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - exp-book-data
+  - --gen2
+  - --region=europe-west4
+  - --source=https://source.developers.google.com/projects/some-project/repos/exp-book-data
+  - --trigger-topic=exp-book
+  - --runtime=python39
+  - --service-account=service-account@some-project.iam.gserviceaccount.com
+  - --entry-point=main
+  - --max-instances=1
+  - --min-instances=0
+  - --timeout=540
+  - --memory=1Gi
