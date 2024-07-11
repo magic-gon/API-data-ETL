@@ -1,0 +1,18 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - anyroad_gcs-to-bq_mm
+  - --gen2
+  - --region=europe-west4
+  - --source=https://source.developers.google.com/projects/some-project/repos/gcs-to-bq
+  - --trigger-bucket=gs://some-bucket
+  - --runtime=python39
+  - --service-account=someserviceacount@some-project.iam.gserviceaccount.com
+  - --entry-point=main
+  - --max-instances=3000
+  - --min-instances=0
+  - --timeout=540
+  - --memory=256MB
