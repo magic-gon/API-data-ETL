@@ -1,0 +1,18 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - guests-gcs-to-bq
+  - --gen2
+  - --region=europe-west4
+  - --source=https://source.developers.google.com/projects/some-project/repos/guests-gcs-to-bq
+  - --trigger-bucket=some-bucket
+  - --runtime=python39
+  - --service-account=someservice@some-project.iam.gserviceaccount.com
+  - --entry-point=main
+  - --max-instances=60
+  - --min-instances=0
+  - --timeout=120
+  - --memory=512MB
